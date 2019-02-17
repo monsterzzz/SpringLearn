@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="conbean" class="funciton.ConFunciton">
+        <constructor-arg ref="conBean"></constructor-arg>
+    </bean>
+
+    <bean id="conBean" class="DIbeans.ConBean"></bean>
+
+    <bean id="setbean" class="funciton.ConFunciton2">
+        <property name="conBean" ref="conBean"></property>
+    </bean>
+
+    <bean id="innerbean" class="funciton.ConFunciton3">
+        <property name="conBean">
+            <bean class="DIbeans.ConBean"></bean>
+        </property>
+    </bean>
+
+    <bean id="collectionbean" class="DIbeans.ConBean2">
+        <property name="list">
+            <list>
+                <value>hello1</value>
+                <value>hello2</value>
+                <value>hello3</value>
+                <value>hello4</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="1" value="hello"></entry>
+                <entry key="2" value="hello"></entry>
+                <entry key="3" value="hello"></entry>
+                <entry key="4" value="hello"></entry>
+            </map>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>hello1</value>
+                <value>hello2</value>
+                <value>hello3</value>
+                <value>hello1</value>
+            </set>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="1">1</prop>
+                <prop key="2">2</prop>
+                <prop key="3">3</prop>
+                <prop key="4">4</prop>
+            </props>
+        </property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="helloworld" class="beans.HelloWorldBean">
+        <property name="msg" value="Hello World"></property>
+    </bean>
+
+    <bean id="beanattr1" class="beans.BeanAttr">
+        <property name="msg" value="Bean Attr Learn"></property>
+    </bean>
+
+
+    <bean id="beanattr2" class="beans.BeanAttr" lazy-init="true">
+        <property name="msg" value="Bean Attr Learn"></property>
+    </bean>
+
+    <bean id="beanscope1" class="beans.BeanScope" scope="singleton"></bean>
+
+    <bean id="beanscope2" class="beans.BeanScope" scope="prototype"></bean>
+
+    <bean id="beanlife" class="beans.BeanLife" init-method="init" destroy-method="destroy">
+        <property name="msg" value="BeanLife Learn"></property>
+    </bean>
+
+    <bean id="beanparent" class="beans.BeanParent" abstract="true">
+        <property name="msg1" value="father msg1"></property>
+        <property name="msg2" value="father msg2"></property>
+    </bean>
+
+    <bean id="beanson" class="beans.BeanSon" parent="beanparent">
+        <property name="msg1" value="son msg1"></property>
+        <property name="msg3" value="son msg3"></property>
+    </bean>
+
+    <!--<bean id="beanhook" class="beans.BeanBigHook"></bean>-->
+
+</beans>
